@@ -11,11 +11,12 @@ export const AddCategory = ({ placeholder = 'Buscar', addCategory }) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        if (inputValue.trim().length > 0) addCategory(inputValue.trim())
+        if (inputValue.trim().length < 1) return
+        addCategory(inputValue.trim())
         setInputValue('')
     }
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label='form'>
             <input
                 type="text"
                 placeholder={placeholder}
